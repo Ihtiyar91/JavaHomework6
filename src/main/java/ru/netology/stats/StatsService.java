@@ -10,14 +10,11 @@ public class StatsService {
     }
 
     public long averageSalesAmount(long[] sales) {
-        long sum = 0;
-        long averageSum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / sales.length;
-        }
+        long sum = salesAmount(sales);
+        long averageSum = sum / sales.length;
         return averageSum;
     }
+
 
     public int maxSales(long[] sales) {
         int maxMonth = 0;
@@ -46,36 +43,22 @@ public class StatsService {
     }
 
     public long numberMonthMinSales(long[] sales) {
-        long sum = 0;
-        long averageSum = 0;
+        long averageSum = averageSalesAmount(sales);
         int z = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / sales.length;
-        }
         for (int a = 0; a < sales.length; a++) {
-            if (averageSum < sales[a]) {
+            if (averageSum < sales[a])
                 z = z + 1;
-            }
         }
         return z;
     }
 
-
     public long numberMonthMaxSales(long[] sales) {
-        long sum = 0;
-        long averageSum = 0;
+        long averageSum = averageSalesAmount(sales);
         int z = 0;
         for (int a = 0; a < sales.length; a++) {
-            sum = sum + sales[a];
-            averageSum = sum / sales.length;
-        }
-        for (int a = 0; a < sales.length; a++) {
-            if (averageSum < sales[a]) {
+            if (averageSum < sales[a])
                 z = z + 1;
-            }
         }
         return z;
     }
 }
-
